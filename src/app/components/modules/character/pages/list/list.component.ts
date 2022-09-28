@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CharacterMarvelAPIService } from '../../../../../services/character-marvel-api.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  constructor( private characterService: CharacterMarvelAPIService ) { }
 
+  allCharacters?: Observable<any>;
+  
   ngOnInit(): void {
+    this.getCharacters();
   }
+
+  getCharacters(){
+    this.allCharacters = this.characterService.getAllCharacters();
+  }
+  
+
 
 }
