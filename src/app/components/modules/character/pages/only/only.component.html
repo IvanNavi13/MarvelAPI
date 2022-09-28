@@ -1,42 +1,60 @@
-<div class="navbar">
-    <ul>
-        <li routerLink="/characterMarvel/startWith" routerLinkActive="active"> <a>Search for first words</a> </li>
-        <li routerLink="/characterMarvel/list" routerLinkActive="active"> <a>List of heroes</a> </li>
-        <li routerLink="/characterMarvel/fullName" routerLinkActive="active"> <a>A hero</a> </li>
-    </ul>
+<div class="collapse" id="navbarToggleExternalContent">
+  <div class="bg-danger p-4">
+    <h5 class="text-white h4"> <i>API MARVEL</i> </h5>
+
+    <div class="d-flex justify-content-around">
+      <h5 routerLink="/characterMarvel/startWith" routerLinkActive="active"><a>Search for first words</a></h5>
+      <h5 routerLink="/characterMarvel/list" routerLinkActive="active"> <a>List of heroes</a> </h5>
+      <h5 routerLink="/characterMarvel/fullName" routerLinkActive="active"> <a>A hero</a> </h5>
+    </div>
+  </div>
 </div>
+<nav class="navbar navbar-dark bg-danger">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent"
+      aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
 
 <br><br>
 
 <ng-container>
+  <div class="container-sm">
+    <h3 for="">Type the first words of the hero: </h3>
     <form [formGroup]="formSearch" (submit)="onSubmit()">
-        <label for="">Type the first words of the hero: </label> 
-        <input name="fullNameCharacter" id="fullNameCharacter" formControlName="fullNameCharacter" type="text" placeholder="Hulk"> <br>
-        <label *ngIf="formSearch.get('fullNameCharacter')?.errors && formSearch.get('fullNameCharacter')?.touched && formSearch.get('fullNameCharacter')?.dirty" ><h3>Required name!</h3></label>
-        <button [disabled]="!formSearch.valid" type="submit"> Search </button>
+      <div class="form-floating mb-3">
+        <input name="fullNameCharacter" class="form-control" id="floatingInput" formControlName="fullNameCharacter"
+          type="text" placeholder="Hulk"> <br>
+        <label for="floatingInput">Hulk</label>
+      </div>
+      <label
+        *ngIf="formSearch.get('fullNameCharacter')?.errors && formSearch.get('fullNameCharacter')?.touched && formSearch.get('fullNameCharacter')?.dirty">
+        <h3>Required name!</h3>
+      </label>
+      <button class="btn btn-primary" [disabled]="!formSearch.valid" type="submit"> Search </button>
     </form>
+  </div>
 </ng-container>
 
-<br><hr>
+<br>
+<hr>
 
-<div class="flex-center">
-    <div *ngFor="let character of fullNameCharacter | async" >
-        <div >
-            <img width="150" height="150" src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" alt="{{character.name}}">
-            <div>
-                <h3>Name: {{character.name}}</h3>
-            </div>
-            <div>
-                <h5>Description: {{character.description}}</h5>
-            </div>
-            <div>
-                <p> Modified : {{character.modified | date}}</p>
-            </div>
+<div class="d-flex justify-content-center">
+  <div class="card mb-3" style="max-width: 540px;" *ngFor="let character of fullNameCharacter | async">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" class="img-fluid rounded-start"
+          alt="{{character.name}}">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Name: {{character.name}}</h5>
+          <p class="card-text">Description: {{character.description}}</p>
+          <p class="card-text"><small class="text-muted">Modified : {{character.modified | date}}</small></p>
         </div>
+      </div>
     </div>
-</div>  
-
-
-
-
-<!-- <p *ngFor="let character of allCharacters | async"> {{character|json}} </p> -->
+  </div>
+</div>

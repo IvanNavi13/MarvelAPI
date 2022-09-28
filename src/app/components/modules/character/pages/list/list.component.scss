@@ -1,15 +1,6 @@
-.navbar{
-    background-color: #DA0037;
-    padding: 5px;
+label, p, h5{
+    color: #444444;
 }
-
-ul{
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
-    padding: 10px;
-}
-
 .line{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -17,8 +8,6 @@ ul{
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 }
-
-
 .active{
     // background-color: #171717;
     color: white;
