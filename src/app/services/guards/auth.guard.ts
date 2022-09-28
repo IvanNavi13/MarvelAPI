@@ -10,7 +10,7 @@ import { AuthService } from '../auth.service';
 export class AuthGuard implements /*CanActivate,*/ CanLoad {
 
   constructor(public authService: AuthService){
-    console.group('servicio:' , this.authService);
+    console.group('server:' , this.authService);
   }
 
   canActivate(

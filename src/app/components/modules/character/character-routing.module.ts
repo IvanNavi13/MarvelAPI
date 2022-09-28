@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ListComponent } from './pages/list/list.component';
 import { FindComponent } from './pages/find/find.component';
+import { OnlyComponent } from './pages/only/only.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
       {
         path: 'startWith',
         component: FindComponent
+      },
+      {
+        path: 'fullName',
+        component: OnlyComponent
       },
       {
         path: 'list',

@@ -4,12 +4,14 @@
 <section class="stark-login">
 
   <div class="flex-center">
-    <form action="" method="">
+    <form action="" [formGroup]="loginForm" (submit)="onSubmit()">
       <div id="fade-box">
-        <input type="text" name="username" id="username" placeholder="Username" required>
-        <input type="password" placeholder="Password" required>
+        <input type="text" name="username" id="username" placeholder="Username" formControlName="username">
+        <label *ngIf="loginForm.get('username')?.errors && loginForm.get('username')?.touched && loginForm.get('username')?.dirty" ><h4>Required username!</h4></label>
+        <input type="password" placeholder="Password" formControlName="password">
+        <label *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched && loginForm.get('password')?.dirty" ><h4>Required password!</h4></label>
   
-        <button>Log In</button>
+        <button [disabled]="!loginForm.valid" type="submit" routerLink="/characterMarvel">Login</button>
       </div>
     </form>
   </div>

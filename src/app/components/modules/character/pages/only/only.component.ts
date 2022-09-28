@@ -4,15 +4,15 @@ import { Observable } from 'rxjs';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-find',
-  templateUrl: './find.component.html',
-  styleUrls: ['./find.component.scss']
+  selector: 'app-only',
+  templateUrl: './only.component.html',
+  styleUrls: ['./only.component.scss']
 })
-export class FindComponent implements OnInit {
+export class OnlyComponent implements OnInit {
 
   constructor( private characterService: CharacterMarvelAPIService ) { }
 
-  startWithCharacters?: Observable<any>;
+  fullNameCharacter?: Observable<any>;
   public formSearch!: FormGroup;
   nameCharacter!: string;
   
@@ -22,24 +22,23 @@ export class FindComponent implements OnInit {
     // this.getStartWithCharacters();
   }
 
-  getStartWithCharacters(nameStart: string){
-    this.startWithCharacters = this.characterService.getAllCharacterNameStart(nameStart);
+  getACharacterFullName(nameStart: string){
+    this.fullNameCharacter = this.characterService.getCharacterFullName(nameStart);
   }
 
   getnameStartValidation(){
     this.formSearch = new FormGroup({
-      nameStart: new FormControl('', [Validators.minLength(1), Validators.required] ), 
+      fullNameCharacter: new FormControl('', [Validators.minLength(1), Validators.required] ), 
       });
   }
 
   onSubmit(){
-    console.log(this.formSearch.get("nameStart")?.value);
-    this.nameCharacter = this.formSearch.get("nameStart")?.value;
+    console.log(this.formSearch.get("fullNameCharacter")?.value);
+    this.nameCharacter = this.formSearch.get("fullNameCharacter")?.value;
     if(this.formSearch.invalid){
       return 
     }
-    this.getStartWithCharacters(this.nameCharacter);
+    this.getACharacterFullName(this.nameCharacter);
   }
-  
 
 }

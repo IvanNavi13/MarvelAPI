@@ -1,0 +1,42 @@
+<div class="navbar">
+    <ul>
+        <li routerLink="/characterMarvel/startWith" routerLinkActive="active"> <a>Search for first words</a> </li>
+        <li routerLink="/characterMarvel/list" routerLinkActive="active"> <a>List of heroes</a> </li>
+        <li routerLink="/characterMarvel/fullName" routerLinkActive="active"> <a>A hero</a> </li>
+    </ul>
+</div>
+
+<br><br>
+
+<ng-container>
+    <form [formGroup]="formSearch" (submit)="onSubmit()">
+        <label for="">Type the first words of the hero: </label> 
+        <input name="fullNameCharacter" id="fullNameCharacter" formControlName="fullNameCharacter" type="text" placeholder="Hulk"> <br>
+        <label *ngIf="formSearch.get('fullNameCharacter')?.errors && formSearch.get('fullNameCharacter')?.touched && formSearch.get('fullNameCharacter')?.dirty" ><h3>Required name!</h3></label>
+        <button [disabled]="!formSearch.valid" type="submit"> Search </button>
+    </form>
+</ng-container>
+
+<br><hr>
+
+<div class="flex-center">
+    <div *ngFor="let character of fullNameCharacter | async" >
+        <div >
+            <img width="150" height="150" src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" alt="{{character.name}}">
+            <div>
+                <h3>Name: {{character.name}}</h3>
+            </div>
+            <div>
+                <h5>Description: {{character.description}}</h5>
+            </div>
+            <div>
+                <p> Modified : {{character.modified | date}}</p>
+            </div>
+        </div>
+    </div>
+</div>  
+
+
+
+
+<!-- <p *ngFor="let character of allCharacters | async"> {{character|json}} </p> -->

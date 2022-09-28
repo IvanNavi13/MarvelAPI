@@ -9,6 +9,7 @@ import { NotFoundComponent } from './components/shared/not-found/not-found.compo
 import { FindComponent } from './components/modules/character/pages/find/find.component';
 import { ListComponent } from './components/modules/character/pages/list/list.component';
 import { LoginComponent } from './components/modules/auth/pages/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LoginComponent } from './components/modules/auth/pages/login/login.comp
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

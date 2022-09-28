@@ -6,16 +6,14 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   public auth: boolean = false;
-
-  public user?: string;
-  public password?: string;
+  public username!: string;
+  public password!: string;
   
   constructor() { }
 
   login(){
-    this.auth = true;
-    localStorage.setItem('auth', this.auth.toString())
-    // this.user = 
+    this.auth = true; 
+    localStorage.setItem('auth', this.auth.toString()) //this.username?.toString(), this.password?.toString()
   }
 
   logout(){
@@ -24,7 +22,7 @@ export class AuthService {
   }
 
   showSession(){
-    this.auth = (localStorage.getItem('auth')?.toLowerCase() == 'true');  //para almacenar en el localStorage si es que se cierra el navegador
+    this.auth = (localStorage.getItem('auth')?.toLowerCase() == 'true'); 
     return this.auth;
   }
 

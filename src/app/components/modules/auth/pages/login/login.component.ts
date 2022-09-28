@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../../../services/auth.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,8 +10,15 @@ import { AuthService } from '../../../../../services/auth.service';
 })
 export class LoginComponent {
 
-  constructor(public authService: AuthService) {
-    this.authService.setSession();
+  loginForm !: FormGroup;
+
+  constructor(public authService: AuthService, private router: Router) {
+    // this.authService.setSession();
+  }
+
+  ngOnInit(): void {
+    this.formValidation();
+    this.onSubmit();
   }
 
   login(){
@@ -22,6 +31,22 @@ export class LoginComponent {
 
   showSession(){
     return this.authService.showSession();
+  }
+
+  formValidation(){
+    this.loginForm = new FormGroup({
+      username: new FormControl('', [Validators.minLength(1), Validators.required] ), 
+      password: new FormControl('', [Validators.minLength(1), Validators.required] ), 
+      });
+  }
+
+  onSubmit(){
+    this.authService.username = this.loginForm.get("username")?.value;
+    this.authService.password = this.loginForm.get("password")?.value;
+    // console.log(this.authService.username);
+    // console.log(this.authService.password);
+    this.login();
+    // this.router.navigate(['characterMarvel']);
   }
 
 }
