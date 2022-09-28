@@ -7,10 +7,10 @@ const routes: Routes = [
   {
     path: '',
     children: [
-      {
-        path: 'login',
-        component: LoginComponent
-      },
+      // {
+      //   path: 'login',
+      //   component: LoginComponent
+      // },
       {
         path: '',
         component: LoginComponent,
@@ -18,7 +18,7 @@ const routes: Routes = [
       },
       {
         path: '**',
-        redirectTo: 'login'
+        redirectTo: ''
       }
     ]
   }
