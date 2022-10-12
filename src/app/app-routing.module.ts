@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { NotFoundComponent } from './components/shared/not-found/not-found.component';
 import { AuthGuard } from './services/guards/auth.guard';
+import { DashboardModule } from './components/modules/dashboard/dashboard.module';
 
 const routes: Routes = [
   {
@@ -13,12 +14,12 @@ const routes: Routes = [
     path : 'auth',
     loadChildren: () => import('./components/modules/auth/auth.module').then(m => m.AuthModule),
   },
-  {
-    path: 'characterMarvel',
-    loadChildren: () => import('./components/modules/character/character.module').then(m => m.CharacterModule),
-    canLoad: [AuthGuard],
-    canActivate: [AuthGuard]
-  },
+  // {
+  //   path: 'characterMarvel',
+  //   loadChildren: () => import('./components/modules/character/character.module').then(m => m.CharacterModule),
+  //   canLoad: [AuthGuard],
+  //   canActivate: [AuthGuard]
+  // },
   {
     path: '',       
     component: NotFoundComponent,

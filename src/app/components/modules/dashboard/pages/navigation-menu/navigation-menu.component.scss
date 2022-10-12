@@ -1,0 +1,27 @@
+.active-menu {
+    border-right: solid 2px red;
+}
+
+.mat-list-item {
+    color: #fff;
+}
+
+.avatar {
+    background-color: black !important;
+    color: #fff;
+    font-size: x-large;
+}
+
+.mat-card-avatar {
+    transform: scale(1.5);
+}
+
+.user {
+    align-items: center;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

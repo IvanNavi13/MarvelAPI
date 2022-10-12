@@ -10,6 +10,7 @@ import { FindComponent } from './components/modules/character/pages/find/find.co
 import { ListComponent } from './components/modules/character/pages/list/list.component';
 import { LoginComponent } from './components/modules/auth/pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,24 @@
+<div class="navigator-container">
+    <div class="flex-center">
+        <mat-card class="avatar">
+            <img mat-card-avatar width="150px" src="./../../../../assets/img/spi.jpg" alt="">
+            <br><br>
+            <span class="user">Ivan</span>
+        </mat-card>
+    </div>
+    <mat-divider></mat-divider>
+    <mat-action-list>
+        <mat-list-item routerLink="/auth/home">
+            <p matLine>Home</p>
+        </mat-list-item>
+        <mat-list-item routerLink="/auth/home/characterMarvel/list" routerLinkActive="active-menu">
+            <p matLine>List of heroes</p> 
+        </mat-list-item>
+        <mat-list-item routerLink="/auth/home/characterMarvel/fullName" routerLinkActive="active-menu">
+            <p matLine>A hero</p> 
+        </mat-list-item>
+        <mat-list-item routerLink="/auth/home/characterMarvel/startWith" routerLinkActive="active-menu">
+            <p matLine>Search a hero for first words</p> 
+        </mat-list-item>            
+    </mat-action-list>
+</div>

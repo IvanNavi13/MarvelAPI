@@ -7,17 +7,23 @@
     <form action="" [formGroup]="loginForm" (submit)="onSubmit()">
       <div id="fade-box">
         <input type="text" name="username" id="username" placeholder="Username" formControlName="username">
-        <label *ngIf="loginForm.get('username')?.errors && loginForm.get('username')?.touched && loginForm.get('username')?.dirty" ><h4>Required username!</h4></label>
+        <label
+          *ngIf="loginForm.get('username')?.errors && loginForm.get('username')?.touched && loginForm.get('username')?.dirty">
+          <h4>Required username!</h4>
+        </label>
         <input type="password" placeholder="Password" formControlName="password">
-        <label *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched && loginForm.get('password')?.dirty" ><h4>Required password!</h4></label>
-  
-        <button [disabled]="!loginForm.valid" type="submit" routerLink="/characterMarvel">Login</button>
+        <label
+          *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched && loginForm.get('password')?.dirty">
+          <h4>Required password!</h4>
+        </label>
+
+        <button [disabled]="!loginForm.valid" type="submit" routerLink="/auth/home">Login</button>
       </div>
     </form>
   </div>
 
 
-  <div class="hexagons flex-center">
+  <!-- <div class="hexagons flex-center">
     <span>&#x2B22;</span>
     <span>&#x2B22;</span>
     <span>&#x2B22;</span>
@@ -81,7 +87,7 @@
     <span>&#x2B22;</span>
     <span>&#x2B22;</span>
     <span>&#x2B22;</span>
-  </div>
+  </div> -->
 </section>
 
 <div id="circle1">

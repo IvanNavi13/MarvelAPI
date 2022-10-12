@@ -1,34 +1,16 @@
-<div class="collapse" id="navbarToggleExternalContent">
-  <div class="bg-danger p-4">
-    <h5 class="text-white h4"> <i>API MARVEL</i> </h5>
-
-    <div class="d-flex justify-content-around">
-      <h5 routerLink="/characterMarvel/startWith" routerLinkActive="active"><a>Search for first words</a></h5>
-      <h5 routerLink="/characterMarvel/list" routerLinkActive="active"> <a>List of heroes</a> </h5>
-      <h5 routerLink="/characterMarvel/fullName" routerLinkActive="active"> <a>A hero</a> </h5>
-    </div>
-  </div>
-</div>
-<nav class="navbar navbar-dark bg-danger">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent"
-      aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  </div>
-</nav>
-
 <br><br>
 <hr>
 
-<div class="line">
-  <div *ngFor="let character of allCharacters | async">
-    <div class="card" style="width: 18rem;">
-      <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" class="card-img-top"
-        alt="{{character.name}}">
-      <div class="card-body">
-        <div class="d-flex justify-content-center">
-          <p class="card-text">{{character.name}}</p>
+<div class="container text-center">
+  <div class="row row-cols-4">
+    <div class="col card-margin" *ngFor="let character of allCharacters | async">
+      <div class="card space-bottom" style="width: 18rem;">
+        <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" class="card-img-top"
+          alt="{{character.name}}">
+        <div class="card-body">
+          <div class="d-flex justify-content-center">
+            <p class="card-text">{{character.name}}</p>
+          </div>
         </div>
       </div>
     </div>

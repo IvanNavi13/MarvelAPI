@@ -1,0 +1,47 @@
+<mat-drawer-container class="menu-container" hasBackdrop="true">
+    <mat-drawer #drawer mode="push" class="menu">
+        <!-- [data]="genres" -->
+        <app-navigation-menu></app-navigation-menu>
+    </mat-drawer>
+    <mat-drawer-content class="active-menu">
+        <mat-toolbar color="secondary">
+            <button mat-icon-button aria-label="Menu" (click)="drawer.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <img alt="" src="./../../../../assets/img/marvel-logo.png" height="50px" width="100px">
+            <span class="div-spacer"></span>
+            <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon">
+                <mat-icon>search</mat-icon>
+            </button>
+            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon">
+                <mat-icon>more_vert</mat-icon>
+            </button> -->
+        </mat-toolbar>
+
+        <div class="container-sm">
+            <br><br><br><br><br>
+            <div class="d-flex justify-content-around">
+                <div class="d-flex flex-column">
+                    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon" routerLink="/auth/home/characterMarvel">
+                        <mat-icon class="icon-display red-icon">insert_emoticon</mat-icon>
+                    </button>    
+                    <br><br>
+                    <h2>Characters</h2>
+                </div>
+                <div class="d-flex flex-column">
+                    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon" routerLink="/auth/home/comicsMarvel">
+                        <mat-icon class="icon-display red-icon">book</mat-icon>
+                    </button>
+                    <br><br>
+                    <br><h2>Comics</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div (scroll)="onScroll($event)" class="container"> -->
+        <router-outlet></router-outlet> 
+        <!-- </div> -->
+
+    </mat-drawer-content>
+
+</mat-drawer-container>
