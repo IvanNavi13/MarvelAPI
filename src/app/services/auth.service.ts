@@ -29,4 +29,5 @@ export class AuthService {
   setSession() {
     this.auth = (localStorage.getItem('auth')?.toLowerCase() == 'true');
   } 
+  
 }
