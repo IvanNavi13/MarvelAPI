@@ -15,12 +15,12 @@ const routes: Routes = [
         canLoad: [AuthGuard],
         canActivate: [AuthGuard]
       },
-      // {    COMICS
-      //   path: 'comicsMarvel',
-      //   loadChildren: () => import('./../character/character.module').then(m => m.CharacterModule),
-      //   canLoad: [AuthGuard],
-      //   canActivate: [AuthGuard]
-      // },
+      {    
+        path: 'comicMarvel',
+        loadChildren: () => import('./../comic/comic.module').then(m => m.ComicModule),
+        canLoad: [AuthGuard],
+        canActivate: [AuthGuard]
+      },
       {
         path: '**',
         redirectTo: ''

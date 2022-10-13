@@ -11,7 +11,7 @@ const routes: Routes = [
     component: NotFoundComponent
   },
   {
-    path : 'auth',
+    path: 'auth',
     loadChildren: () => import('./components/modules/auth/auth.module').then(m => m.AuthModule),
   },
   // {
@@ -21,12 +21,12 @@ const routes: Routes = [
   //   canActivate: [AuthGuard]
   // },
   {
-    path: '',       
+    path: '',
     component: NotFoundComponent,
     pathMatch: 'full'
   },
   {
-    path: '**',   
+    path: '**',
     redirectTo: '404',
   }
 ];

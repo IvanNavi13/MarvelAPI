@@ -1,0 +1,40 @@
+<br><br>
+
+<ng-container>
+    <div class="container-sm">
+        <form [formGroup]="formSearch" (submit)="onSubmit()">
+            <h3 for="">Type the comic's name: </h3>
+            <div class="form-floating mb-3">
+                <input name="nameComic" class="form-control" id="floatingInput" formControlName="nameComic" type="text"
+                    placeholder="Avengers"> <br>
+                <label for="floatingInput">Avengers</label>
+            </div>
+            <label
+                *ngIf="formSearch.get('nameComic')?.errors && formSearch.get('nameComic')?.touched && formSearch.get('nameComic')?.dirty">
+                <h3>Required name!</h3>
+            </label>
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-danger" [disabled]="!formSearch.valid" type="submit"> Search </button>
+            </div>
+        </form>
+    </div>
+</ng-container>
+
+<br>
+<hr>
+
+<div class="container text-center">
+    <div class="row row-cols-4">
+        <div class="col card-margin" *ngFor="let comic of comicsFullName | async">
+            <div class="card" style="width: 18rem;">
+                <img src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" class="card-img-top"
+                    alt="{{comic.title}}">
+                <div class="card-body">
+                    <div class="d-flex justify-content-center">
+                        <p class="card-text">{{comic.title}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

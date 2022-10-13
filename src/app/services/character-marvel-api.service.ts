@@ -26,5 +26,21 @@ export class CharacterMarvelAPIService {
       map((response: any) => response.data.results));
   }
 
+  getAllComics(): Observable<Object> {
+    console.log(environment.MARVEL_URL + ApiEndpoints.AllCOMICS)
+    return this.http.get<any>(environment.MARVEL_URL + ApiEndpoints.AllCOMICS).pipe(
+      map((response: any) => response.data.results));
+  }
+
+  getComicsFullTitle(nameTitle: string): Observable<Object> {
+    return this.http.get<any>(environment.MARVEL_URL + ApiEndpoints.getComicsByFullTitle(nameTitle)).pipe(
+      map((response: any) => response.data.results));
+  }
+
+  getComicsByFormatType(formatType: string): Observable<Object> {
+    return this.http.get<any>(environment.MARVEL_URL + ApiEndpoints.getComicsByFormatType(formatType)).pipe(
+      map((response: any) => response.data.results));
+  }
+
 
 }
