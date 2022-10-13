@@ -26,7 +26,7 @@
 <div class="container text-center">
   <div class="row row-cols-4">
     <div class="col card-margin" *ngFor="let characterStart of startWithCharacters | async">
-      <div class="card" style="width: 18rem;">
+      <div class="card">
         <img src="{{characterStart.thumbnail.path}}.{{characterStart.thumbnail.extension}}" class="card-img-top"
           alt="{{characterStart.name}}">
         <div class="card-body">

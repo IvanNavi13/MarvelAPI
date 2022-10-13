@@ -27,7 +27,6 @@ export class CharacterMarvelAPIService {
   }
 
   getAllComics(): Observable<Object> {
-    console.log(environment.MARVEL_URL + ApiEndpoints.AllCOMICS)
     return this.http.get<any>(environment.MARVEL_URL + ApiEndpoints.AllCOMICS).pipe(
       map((response: any) => response.data.results));
   }
