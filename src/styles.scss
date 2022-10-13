@@ -6,3 +6,8 @@ body{
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+
+
+.mat-drawer-inner-container{
+    background-color: black !important;
+}
