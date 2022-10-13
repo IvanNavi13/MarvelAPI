@@ -22,6 +22,10 @@ export class AuthGuard implements /*CanActivate,*/ CanLoad {
       return this.authService.auth;
   }
 
+  // if(StorageHelper.getItem('session') === "")
+      //   this.router.navigate(["auth"]);
+      // return StorageHelper.getItem('session');
+
   canLoad(  //antes
     route: Route,
     segments: UrlSegment[]): Observable<boolean> | Promise<boolean>  | boolean {

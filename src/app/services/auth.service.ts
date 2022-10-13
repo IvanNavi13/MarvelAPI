@@ -1,4 +1,8 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import StorageHelper from '../utils/storage.helper';
+import { environment } from '../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -6,10 +10,12 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   public auth: boolean = false;
-  public username!: string;
-  public password!: string;
 
-  constructor() { }
+  constructor(public http: HttpClient) { }
+
+  /*
+  **    Login version 1
+   */
 
   login() {
     this.auth = true;
@@ -29,5 +35,26 @@ export class AuthService {
   setSession() {
     this.auth = (localStorage.getItem('auth')?.toLowerCase() == 'true');
   }
+
+
+  /*
+  **    Login version 2 (API)
+   */
+
+  loginV2(username: string, password: string): Observable<any> {
+    return this.http.post(environment.LOGIN_URL+'/api/login',
+      {
+        username,   
+        password
+      })
+  }
+
+  refreshTokenV2() {
+    return this.http.post(environment.LOGIN_URL+'/api/refresh',
+      {
+        session: StorageHelper.getItem('session')
+      })
+  }
+
 
 }

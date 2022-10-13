@@ -16,8 +16,8 @@
           *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched && loginForm.get('password')?.dirty">
           <h4>Required password!</h4>
         </label>
-
-        <button [disabled]="!loginForm.valid" type="submit" routerLink="/auth/home">Login</button>
+        <!-- routerLink="/auth/home" -->
+        <button [disabled]="!loginForm.valid" type="submit" >Login</button>
       </div>
     </form>
   </div>
