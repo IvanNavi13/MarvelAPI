@@ -41,7 +41,7 @@
               "extractLicenses": false,
               "sourceMap": false,
               "namedChunks": false,
-              "budgets": [ //alertas
+              "budgets": [ 
                 {
                   "type": "initial",
                   "maximumWarning": "800kb",
